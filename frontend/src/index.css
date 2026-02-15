@@ -1,3 +1,8 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -403,9 +408,6 @@ nav a.active {
   background: rgb(49, 120, 164);
 }
 
-main {
-  margin-top: 30px;
-}
 .quantity {
   width: 50px;
   padding: 5px;
@@ -692,7 +694,6 @@ form button:hover {
 .delivered-btn:hover {
   background-color: rgb(28, 80, 114);
 }
-
 
 /* footer */
 .footer {
