@@ -16,7 +16,7 @@ function NavbarLayout({ search, setsearch }) {
   useEffect(() => {
     async function ReadOrders() {
       try {
-        const data = (await axios.get("http://localhost:5000/getAddresess"))
+        const data = (await axios.get(`${process.env.REACT_APP_API_URL}/getAddresess`))
           .data;
         setlengths(data.data);
       } catch (error) {
@@ -34,7 +34,7 @@ function NavbarLayout({ search, setsearch }) {
         return;
       }
       try {
-        const data = await axios.get("http://localhost:5000/welcome", {
+        const data = await axios.get(`${process.env.REACT_APP_API_URL}/welcome`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

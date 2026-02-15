@@ -50,7 +50,7 @@ function App() {
       try {
         const data = (
           await axios.get(
-            `http://localhost:5000/fetchProducts?search=${search}`,
+            `${process.env.REACT_APP_API_URL}/fetchProducts?search=${search}`,
           )
         ).data;
         if (data.message) {

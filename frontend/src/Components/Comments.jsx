@@ -7,7 +7,7 @@ function Comments() {
   useEffect(() => {
     async function fetchComments() {
       try {
-        const data = (await axios.get("http://localhost:5000/fetchComments"))
+        const data = (await axios.get(`${process.env.REACT_APP_API_URL}/fetchComments`))
           .data;
         setcomments(data.data);
       } catch (error) {
@@ -32,7 +32,7 @@ function Comments() {
 
     try {
       const data = await axios.post(
-        "http://localhost:5000/Comments",
+        `${process.env.REACT_APP_API_URL}/Comments`,
         { comment },
         {
           headers: {

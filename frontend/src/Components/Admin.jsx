@@ -14,7 +14,7 @@ function Admin() {
         return;
       }
       try {
-        const data = await axios.get("http://localhost:5000/Admin", {
+        const data = await axios.get(`${process.env.REACT_APP_API_URL}/Admin`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
