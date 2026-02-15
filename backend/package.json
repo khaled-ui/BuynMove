@@ -7,7 +7,8 @@
   "type": "commonjs",
   "main": "Server.js",
   "scripts": {
-    "start": "nodemon Server.js"
+    "dev": "nodemon Server.js",
+    "start": "node Server.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.94.1",
