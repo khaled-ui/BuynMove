@@ -373,7 +373,6 @@ app.get("/testdb", async (req, res) => {
   res.json(rows);
 });
 
-
 app.post("/forgetpass", async (req, res) => {
   const { email } = req.body;
   const otp = RandomNum();
@@ -384,6 +383,9 @@ app.post("/forgetpass", async (req, res) => {
       user: "khaledasfour531@gmail.com",
       pass: process.env.Mail_Password,
     },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 10000,
   });
 
   try {
