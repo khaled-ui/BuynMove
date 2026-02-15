@@ -705,3 +705,107 @@ form button:hover {
   font-size: 14px;
   margin: 0;
 }
+/*  Navbar dropdown mobile */
+.nav {
+  position: relative;
+}
+
+/* keep your existing nav styles working */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-search {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* hide checkbox */
+.nav-toggle {
+  display: none;
+}
+
+/* burger button hidden on desktop */
+.nav-burger {
+  display: none;
+  margin-left: auto;
+  cursor: pointer;
+  width: 42px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-burger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* Mobile dropdown */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: nowrap;
+    height: auto;
+    position: relative;
+  }
+
+  /* show burger */
+  .nav-burger {
+    display: flex;
+  }
+
+  /* brand on the left */
+  nav a:first-child,
+  .nav-brand {
+    margin-right: 0;
+    font-size: 22px;
+  }
+
+  /* dropdown container */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 12px;
+    right: 12px;
+    background-color: rgb(61, 150, 205);
+    border-radius: 14px;
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    z-index: 50;
+  }
+
+  /* show when toggled */
+  .nav-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  /* links look like menu items */
+  .nav-links a {
+    font-size: 16px;
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* search fits menu */
+  .nav-search {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

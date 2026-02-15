@@ -67,31 +67,44 @@ function NavbarLayout({ search, setsearch }) {
     <div className="navbar-container">
       <nav>
         <NavLink to="home">Logo</NavLink>
-        <input
-          type="search"
-          name="search"
-          value={search}
-          placeholder="Search"
-          onChange={(e) => setsearch(e.target.value)}
-        />
-        <NavLink to="home">Home</NavLink>
-        <NavLink to="Driver" style={styles}>
-          Orders {lengths.length}
-        </NavLink>
-        <NavLink to="admin" style={style}>
-          Admin
-        </NavLink>
-        <NavLink to="contact">Contact Us</NavLink>
-        <NavLink to="/" onClick={deletetoken}>
-          Logout
-        </NavLink>
-        <NavLink to="cart">
-          <ShoppingCartIcon />
-          {cart.length}
-        </NavLink>
-        <NavLink to="comments">
-          <CommentIcon />
-        </NavLink>
+        <input id="nav-toggle" className="nav-toggle" type="checkbox" />
+        <label
+          htmlFor="nav-toggle"
+          className="nav-burger"
+          aria-label="Open menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div className="nav-links">
+          <input
+            className="nav-search"
+            type="search"
+            name="search"
+            value={search}
+            placeholder="Search"
+            onChange={(e) => setsearch(e.target.value)}
+          />
+          <NavLink to="home">Home</NavLink>
+          <NavLink to="Driver" style={styles}>
+            Orders {lengths.length}
+          </NavLink>
+          <NavLink to="admin" style={style}>
+            Admin
+          </NavLink>
+          <NavLink to="contact">Contact Us</NavLink>
+          <NavLink to="/" onClick={deletetoken}>
+            Logout
+          </NavLink>
+          <NavLink to="cart">
+            <ShoppingCartIcon />
+            {cart.length}
+          </NavLink>
+          <NavLink to="comments">
+            <CommentIcon />
+          </NavLink>
+        </div>
       </nav>
       <main>
         <Outlet />
