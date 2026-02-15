@@ -10,6 +10,7 @@ const nodemailer = require("nodemailer");
 const { supabase } = require("./Supabase/supabase");
 const multer = require("multer");
 const axios = require("axios");
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -451,7 +452,8 @@ app.post("/register", async (req, res) => {
     console.error(error);
   }
 });
+app.get("/health", (req, res) => res.send("ok"));
 
-app.listen(5000, () => {
-  console.log("Server is working 5000");
+app.listen(PORT, () => {
+  console.log(`Server is working ${PORT}`);
 });
