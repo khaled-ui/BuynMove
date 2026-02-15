@@ -368,6 +368,11 @@ app.post("/verifyOtp", async (req, res) => {
     res.json({ success: false, msg: "OTP invalid or expired" });
   }
 });
+app.get("/testdb", async (req, res) => {
+  const [rows] = await db.query("SELECT COUNT(*) as total FROM users");
+  res.json(rows);
+});
+
 
 app.post("/forgetpass", async (req, res) => {
   const { email } = req.body;
