@@ -8,7 +8,7 @@ function DriversPage() {
   useEffect(() => {
     async function completedOrders() {
       try {
-        const data = (await axios.get(`${process.env.REACT_APP_API_URL}/completedOrders`))
+        const data = (await axios.get(`http://localhost:5000/completedOrders`))
           .data;
         setorders(data.data);
       } catch (error) {
@@ -18,7 +18,7 @@ function DriversPage() {
     completedOrders();
     async function getsales() {
       try {
-        const data = (await axios.get(`${process.env.REACT_APP_API_URL}/getsales`)).data;
+        const data = (await axios.get(`http://localhost:5000/getsales`)).data;
         setsales(data.data);
       } catch (error) {
         console.error(error);
@@ -27,7 +27,7 @@ function DriversPage() {
     getsales();
     async function getrevenue() {
       try {
-        const data = (await axios.get(`${process.env.REACT_APP_API_URL}/Revenue`)).data;
+        const data = (await axios.get(`http://localhost:5000/Revenue`)).data;
         setrevenue(data.data);
       } catch (error) {
         console.error(error);

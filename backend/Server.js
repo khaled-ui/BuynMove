@@ -12,16 +12,7 @@ const multer = require("multer");
 const axios = require("axios");
 const PORT = process.env.PORT || 5000;
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      process.env.CLIENT_URL,
-    ],
-    credentials: true,
-  }),
-);
+app.use(cors());
 app.use(express.json());
 const upload = multer({ storage: multer.memoryStorage() });
 
@@ -368,10 +359,6 @@ app.post("/verifyOtp", async (req, res) => {
     res.json({ success: false, msg: "OTP invalid or expired" });
   }
 });
-app.get("/testdb", async (req, res) => {
-  const [rows] = await db.query("SELECT COUNT(*) as total FROM users");
-  res.json(rows);
-});
 
 app.post("/forgetpass", async (req, res) => {
   const { email } = req.body;
@@ -399,19 +386,6 @@ app.post("/forgetpass", async (req, res) => {
       subject: "Your OTP",
       text: `This is your OTP to change your Password "${otp}"`,
     });
-
-    await axios.post(
-      `${process.env.MAILER_URL}/send-otp`,
-      {
-        to: email,
-        otp,
-      },
-      {
-        headers: {
-          "x-mailer-key": process.env.MAILER_KEY,
-        },
-      },
-    );
 
     const Otptoken = jwt.sign(
       { email: data[0].email, otp: otp },

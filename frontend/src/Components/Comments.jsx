@@ -7,7 +7,7 @@ function Comments() {
   useEffect(() => {
     async function fetchComments() {
       try {
-        const data = (await axios.get(`${process.env.REACT_APP_API_URL}/fetchComments`))
+        const data = (await axios.get(`http://localhost:5000/fetchComments`))
           .data;
         setcomments(data.data);
       } catch (error) {
@@ -19,7 +19,7 @@ function Comments() {
 
   const fetch = comments.map((item) => {
     return (
-      <div key={item.id} className = "comment-box">
+      <div key={item.id} className="comment-box">
         <h3>{item.full_name}</h3>
         <p>{item.message}</p>
       </div>
@@ -32,7 +32,7 @@ function Comments() {
 
     try {
       const data = await axios.post(
-        `${process.env.REACT_APP_API_URL}/Comments`,
+        `http://localhost:5000/Comments`,
         { comment },
         {
           headers: {
@@ -64,7 +64,7 @@ function Comments() {
         <p>{message}</p>
         <button>Send</button>
       </form>
-      <div className  = "comm-container">{fetch}</div>
+      <div className="comm-container">{fetch}</div>
     </div>
   );
 }

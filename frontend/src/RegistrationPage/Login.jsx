@@ -11,7 +11,7 @@ function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const data = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+      const data = await axios.post(`http://localhost:5000/login`, {
         email,
         password,
       });
@@ -29,7 +29,7 @@ function Login() {
   return (
     <div className="log-container">
       <h2>Login</h2>
-      <p className = 'log-msg'>{message}</p>
+      <p className="log-msg">{message}</p>
       <form className="log-form" onSubmit={handleSubmit}>
         <span>Email</span>
         <input
@@ -49,7 +49,6 @@ function Login() {
         />
         <NavLink to="/forgetPass">Forgot your password?</NavLink>
         <button type="submit">Submit</button>
-        
       </form>
       <main>
         <Outlet />

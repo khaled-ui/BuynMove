@@ -16,7 +16,7 @@ function Driver() {
         return;
       }
       try {
-        const data = await axios.get(`${process.env.REACT_APP_API_URL}/drivers`, {
+        const data = await axios.get(`http://localhost:5000/drivers`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -35,7 +35,7 @@ function Driver() {
 
   async function DeliveredDone(product_id) {
     try {
-      const data = await axios.delete(`${process.env.REACT_APP_API_URL}/delivered`, {
+      const data = await axios.delete(`http://localhost:5000/delivered`, {
         data: { product_id },
       });
       console.log(data);
@@ -49,7 +49,7 @@ function Driver() {
   useEffect(() => {
     async function ReadOrders() {
       try {
-        const data = (await axios.get(`${process.env.REACT_APP_API_URL}/getAddresess`))
+        const data = (await axios.get(`http://localhost:5000/getAddresess`))
           .data;
         setOrders(data.data);
       } catch (error) {

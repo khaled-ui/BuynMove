@@ -11,7 +11,7 @@ function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const data = await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
+      const data = await axios.post(`http://localhost:5000/register`, {
         fullname,
         email,
         password,
@@ -32,7 +32,7 @@ function Register() {
   return (
     <div className="reg-container">
       <h2>Register</h2>
-      <p className = "reg-message">{message}</p>
+      <p className="reg-message">{message}</p>
       <form className="reg-form" onSubmit={handleSubmit}>
         <span>Full Name</span>
         <input

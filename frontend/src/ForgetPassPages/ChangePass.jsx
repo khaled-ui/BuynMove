@@ -16,7 +16,7 @@ function ChangePass() {
       } else {
         const resetToken = localStorage.getItem("resetToken");
 
-        const data = await axios.post(`${process.env.REACT_APP_API_URL}/updatePass`, {
+        const data = await axios.post(`http://localhost:5000/updatePass`, {
           confirmPassword,
           resetToken,
         });

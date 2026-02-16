@@ -35,7 +35,7 @@ function Cart() {
     try {
       const token = localStorage.getItem("token");
       const data = axios.post(
-        `${process.env.REACT_APP_API_URL}/foraddress`,
+        `http://localhost:5000/foraddress`,
         { fullname, email, phoneNumber, address },
         {
           headers: {
@@ -64,7 +64,7 @@ function Cart() {
       const token = localStorage.getItem("token");
 
       const data = await axios.post(
-        `${process.env.REACT_APP_API_URL}/pay`,
+        `http://localhost:5000/pay`,
         { items },
         {
           headers: {

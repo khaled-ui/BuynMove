@@ -12,7 +12,7 @@ function Contact() {
 
     try {
       const data = await axios.post(
-        `${process.env.REACT_APP_API_URL}/contactUs`,
+        `http://localhost:5000/contactUs`,
         { email, message },
         {
           headers: {
@@ -25,8 +25,8 @@ function Contact() {
       } else {
         setresponse("Thank You For Your Message");
       }
-      setemail("")
-      setmessage("")
+      setemail("");
+      setmessage("");
     } catch (error) {
       console.error(error);
     }
@@ -57,7 +57,7 @@ function Contact() {
         <button type="submit">Send</button>
       </form>
 
-      <p style = {{textAlign : "center"}}>{response}</p>
+      <p style={{ textAlign: "center" }}>{response}</p>
     </div>
   );
 }

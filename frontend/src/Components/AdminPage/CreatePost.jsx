@@ -18,7 +18,7 @@ function CreatePost() {
     try {
       if (!isNaN(price)) {
         const data = await axios.post(
-          `${process.env.REACT_APP_API_URL}/createPost`,
+          `http://localhost:5000/createPost`,
           formData,
           {
             headers: {
