@@ -377,13 +377,13 @@ app.post("/forgetpass", async (req, res) => {
   const { email } = req.body;
   const otp = RandomNum();
 
-  // const transporter = nodemailer.createTransport({
-  //   service: "gmail",
-  //   auth: {
-  //     user: "khaledasfour531@gmail.com",
-  //     pass: process.env.Mail_Password,
-  //   },
-  // });
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "khaledasfour531@gmail.com",
+      pass: process.env.Mail_Password,
+    },
+  });
 
   try {
     const [data] = await db.query("SELECT email from users WHERE email = ?", [
@@ -393,12 +393,12 @@ app.post("/forgetpass", async (req, res) => {
       return res.json({ msg: false });
     }
 
-    // await transporter.sendMail({
-    //   from: "khaledasfour531@gmail.com",
-    //   to: email,
-    //   subject: "Your OTP",
-    //   text: `This is your OTP to change your Password "${otp}"`,
-    // });
+    await transporter.sendMail({
+      from: "khaledasfour531@gmail.com",
+      to: email,
+      subject: "Your OTP",
+      text: `This is your OTP to change your Password "${otp}"`,
+    });
 
     await axios.post(
       `${process.env.MAILER_URL}/send-otp`,
