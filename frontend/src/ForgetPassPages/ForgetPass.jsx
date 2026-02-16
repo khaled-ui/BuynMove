@@ -16,7 +16,7 @@ function ForgetPass() {
         setmessage("Your Email doesn't Exist");
       } else {
         localStorage.setItem("otoken", data.data.Otptoken);
-        navigate("/otp");
+        return navigate("/otp");
       }
       console.log(data);
     } catch (error) {
