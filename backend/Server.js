@@ -400,7 +400,7 @@ app.post("/forgetpass", async (req, res) => {
     //   text: `This is your OTP to change your Password "${otp}"`,
     // });
 
-    await axios.post(`${process.env.MAILER_URL}/send-mail`, {
+    await axios.post(`${process.env.MAILER_URL}/send-otp`, {
       to: email,
       subject: "Your OTP",
       text: `This is your OTP to change your Password "${otp}"`,
